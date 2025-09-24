@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="refresh" content="0;url=intent:#Intent;component=com.manateeworks.barcodescanners/.SplashActivity;end">
     <script>
-        setTimeout(function() {
-            window.location.href = "https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners";
-        }, 1000); // Редирект на Play Store через 1 секунду, если intent не сработал
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            // Для iOS - сразу показываем инструкцию
+            alert("Нажмите 'Открыть' во всплывающем окне чтобы запустить сканер");
+            window.location.href = "manateeworks://scan";
+            
+            setTimeout(function() {
+                window.location.href = "https://apps.apple.com/app/barcode-scanner/id417256150";
+            }, 1500);
+            
+        } else {
+            // Android - всё автоматически
+            window.location.href = "intent:#Intent;component=com.manateeworks.barcodescanners/.SplashActivity;end";
+            setTimeout(function() {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners";
+            }, 1000);
+        }
     </script>
 </head>
 <body>
-    <p>Открытие Barcode Scanner...</p>
+    <p>Запуск сканера...</p>
 </body>
 </html>
