@@ -3,7 +3,7 @@
 <head>
     <script>
         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            // Для iOS - сразу показываем инструкцию
+            
             alert("Нажмите 'Открыть' во всплывающем окне чтобы запустить сканер");
             window.location.href = "manateeworks://scan";
             
@@ -12,7 +12,7 @@
             }, 1500);
             
         } else {
-            // Android - всё автоматически
+            
             window.location.href = "intent:#Intent;component=com.manateeworks.barcodescanners/.SplashActivity;end";
             setTimeout(function() {
                 window.location.href = "https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners";
@@ -24,3 +24,4 @@
     <p>Запуск сканера...</p>
 </body>
 </html>
+
