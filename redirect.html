@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
+    <title>Запуск сканера</title>
     <script>
-        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        function redirectToAppOrStore() {
+            const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
             
-            alert("Приложение Barcode Scanners откроется в App Store. Установите его для сканирования.");
-            window.location.href = "https://apps.apple.com/ru/app/barcode-scanners/id504201315";
-            /*
-            window.location.href = "manateeworks://scan";
-            
-            setTimeout(function() {
-                //window.location.href = "https://apps.apple.com/app/barcode-scanner/id417256150";
-                window.location.href = "https://apps.apple.com/ru/app/barcode-scanners/id504201315";
-            }, 1500);
-            */
-        } else {
-            
-            window.location.href = "intent:#Intent;component=com.manateeworks.barcodescanners/.SplashActivity;end";
-            setTimeout(function() {
-                window.location.href = "https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners";
-            }, 1000);
+            if (isIOS) {
+                const appStoreUrl = "https://apps.apple.com/ru/app/barcode-scanners/id504201315";                       
+                window.location.href = appStoreUrl;
+            } else {
+                const intentUrl = "intent:#Intent;component=com.manateeworks.barcodescanners/.SplashActivity;end";
+                const playStoreUrl = "https://play.google.com/store/apps/details?id=com.manateeworks.barcodescanners";
+
+                window.location.href = intentUrl;
+                setTimeout(() => {
+                    window.location.href = playStoreUrl;
+                }, 1000);
+            }
         }
+
+        window.onload = redirectToAppOrStore;
     </script>
 </head>
 <body>
-    <p>Запуск сканера...</p>
+    <p>Перенаправление в магазин приложений...</p>
 </body>
 </html>
-
-
-
