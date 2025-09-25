@@ -4,14 +4,16 @@
     <script>
         if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
             
-            alert("Нажмите 'Открыть' во всплывающем окне чтобы запустить сканер");
+            alert("Приложение Barcode Scanners откроется в App Store. Установите его для сканирования.");
+            window.location.href = "https://apps.apple.com/ru/app/barcode-scanners/id504201315";
+            /*
             window.location.href = "manateeworks://scan";
             
             setTimeout(function() {
                 //window.location.href = "https://apps.apple.com/app/barcode-scanner/id417256150";
                 window.location.href = "https://apps.apple.com/ru/app/barcode-scanners/id504201315";
             }, 1500);
-            
+            */
         } else {
             
             window.location.href = "intent:#Intent;component=com.manateeworks.barcodescanners/.SplashActivity;end";
@@ -25,5 +27,6 @@
     <p>Запуск сканера...</p>
 </body>
 </html>
+
 
 
